@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"react-router-redux",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "react-router-redux",
+    "description": "api documentation for [react-router-redux (v4.0.8)](https://github.com/reactjs/react-router-redux#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-react-router-redux.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-react-router-redux) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-react-router-redux.svg)](https://travis-ci.org/npmdoc/node-npmdoc-react-router-redux)",
     "devDependencies": {
-        "react-router-redux": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "react-router-redux": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-react-router-redux",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-react-router-redux",
+    "keywords": [
+        "documentation",
+        "react-router-redux"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_react_router_redux.js",
+    "name": "npmdoc-react-router-redux",
+    "nameAlias": "npmdoc_react_router_redux",
+    "nameOriginal": "npmdoc-react-router-redux",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-react-router-redux.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
